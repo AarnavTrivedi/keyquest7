@@ -18,7 +18,7 @@ const server = `
 import { createClient } from '@/utils/supabase/server'
 
 export default async function Page() {
-  const supabase = createClient()
+  const supabase = cr eateClient()
   const { data: notes } = await supabase.from('notes').select()
 
   return <pre>{JSON.stringify(notes, null, 2)}</pre>
@@ -49,51 +49,11 @@ export default function Page() {
 
 export default function FetchDataSteps() {
   return (
-    <ol className="flex flex-col gap-6">
-      <Step title="Create some tables and insert some data">
-        <p>
-          Head over to the{" "}
-          <a
-            href="https://supabase.com/dashboard/project/_/editor"
-            className="font-bold hover:underline text-foreground/80"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Table Editor
-          </a>{" "}
-          for your Supabase project to create a table and insert some example
-          data. If you're stuck for creativity, you can copy and paste the
-          following into the{" "}
-          <a
-            href="https://supabase.com/dashboard/project/_/sql/new"
-            className="font-bold hover:underline text-foreground/80"
-            target="_blank"
-            rel="noreferrer"
-          >
-            SQL Editor
-          </a>{" "}
-          and click RUN!
-        </p>
-        <Code code={create} />
-      </Step>
+    <div className="flex flex-col gap-6">
 
-      <Step title="Query Supabase data from Next.js">
-        <p>
-          To create a Supabase client and query data from an Async Server
-          Component, create a new page.tsx file at{" "}
-          <span className="px-2 py-1 rounded-md bg-foreground/20 text-foreground/80">
-            /app/notes/page.tsx
-          </span>{" "}
-          and add the following.
-        </p>
-        <Code code={server} />
-        <p>Alternatively, you can use a Client Component.</p>
-        <Code code={client} />
-      </Step>
+      <p className="mb-3 text-gray-500 dark:text-gray-400">Enter a topic you're interested in. Then, type through a generated mystery on your topic to learn about something you're interested in. Increase your typing speed, solve a mystery and learn something new! Type your topic into the box above to begin!</p>
 
-      <Step title="Build in a weekend and scale to millions!">
-        <p>You're ready to launch your product to the world! 🚀</p>
-      </Step>
-    </ol>
+
+    </div>
   );
 }
